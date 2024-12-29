@@ -25,6 +25,11 @@ namespace HostelFresh.Domain.Entities
         public RoomTypes Type { get; set; }
 
         /// <summary>
+        /// Максимальное количество жильцов
+        /// </summary>
+        public int MaxTenant { get; set; }
+
+        /// <summary>
         /// Этаж <see cref="Entities.Flat"/>
         /// </summary>
         public virtual Flat? Flat { get; set; }

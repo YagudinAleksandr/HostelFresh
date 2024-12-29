@@ -23,5 +23,15 @@ namespace HostelFresh.Domain.Entities
         /// Номер по порядку
         /// </summary>
         public int? OrderNumber { get; set; }
+
+        /// <summary>
+        /// Подъезды
+        /// </summary>
+        public virtual IReadOnlyCollection<Enterance> Enterances { get; set; } = new List<Enterance>();
+
+        /// <summary>
+        /// Тарифные планы
+        /// </summary>
+        public virtual IReadOnlyCollection<Rate> Rates { get; set; } = new List<Rate>();
     }
 }
