@@ -5,13 +5,17 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{96155217-A177-416F-B3D3-8BB4118C40AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.Application.Abstractions", "Application\HostelFresh.Application.Abstractions\HostelFresh.Application.Abstractions.csproj", "{1B83345E-5A49-45AD-B6D2-F188224E25EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostelFresh.Application.Abstractions", "Application\HostelFresh.Application.Abstractions\HostelFresh.Application.Abstractions.csproj", "{1B83345E-5A49-45AD-B6D2-F188224E25EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.Client", "HostelFresh.Client\HostelFresh.Client.csproj", "{B62AFC43-50D0-4187-BB89-CE7E982A57F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostelFresh.Client", "HostelFresh.Client\HostelFresh.Client.csproj", "{B62AFC43-50D0-4187-BB89-CE7E982A57F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.Server", "HostelFresh.Server\HostelFresh.Server.csproj", "{72D0E5D1-2C65-42A6-A991-52A3E171B7A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostelFresh.Server", "HostelFresh.Server\HostelFresh.Server.csproj", "{72D0E5D1-2C65-42A6-A991-52A3E171B7A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.UserClient", "HostelFresh.UserClient\HostelFresh.UserClient.csproj", "{5C83EA3F-4324-4155-A615-70FD0EE890A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostelFresh.UserClient", "HostelFresh.UserClient\HostelFresh.UserClient.csproj", "{5C83EA3F-4324-4155-A615-70FD0EE890A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EA8C4B39-93BB-4379-B00B-26C9F7DE38A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.Domain.Entities", "Domain\HostelFresh.Domain.Entities\HostelFresh.Domain.Entities.csproj", "{30F0E3B6-63A5-4C62-ACFE-247CA26986B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +39,17 @@ Global
 		{5C83EA3F-4324-4155-A615-70FD0EE890A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C83EA3F-4324-4155-A615-70FD0EE890A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C83EA3F-4324-4155-A615-70FD0EE890A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F0E3B6-63A5-4C62-ACFE-247CA26986B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F0E3B6-63A5-4C62-ACFE-247CA26986B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F0E3B6-63A5-4C62-ACFE-247CA26986B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F0E3B6-63A5-4C62-ACFE-247CA26986B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1B83345E-5A49-45AD-B6D2-F188224E25EA} = {96155217-A177-416F-B3D3-8BB4118C40AC}
+		{30F0E3B6-63A5-4C62-ACFE-247CA26986B6} = {EA8C4B39-93BB-4379-B00B-26C9F7DE38A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFB1DFC9-8CA8-4740-80D5-ED718A7600D7}
