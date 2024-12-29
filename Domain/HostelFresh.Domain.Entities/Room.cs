@@ -1,18 +1,18 @@
 ﻿using HostelFresh.Application.Abstractions.Entities;
+using HostelFresh.Shared.Enums;
 
 namespace HostelFresh.Domain.Entities
 {
-    /// <summary>
-    /// Подъезд
-    /// </summary>
-    public class Enterance : IEntity<int>, IOrderedEntity
+    public class Room : IEntity<int>, IOrderedEntity
     {
         public int Id { get; set; }
 
+        public int? OrderNumber { get; set; }
+
         /// <summary>
-        /// ИД общежития
+        /// ИД этажа
         /// </summary>
-        public int HostelId { get; set; }
+        public int FlatId { get; set; }
 
         /// <summary>
         /// Название
@@ -20,13 +20,13 @@ namespace HostelFresh.Domain.Entities
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Номер по порядку
+        /// Тип комнаты <see cref="RoomTypes"/>
         /// </summary>
-        public int? OrderNumber { get; set; }
+        public RoomTypes Type { get; set; }
 
         /// <summary>
-        /// Общежите <see cref="Entities.Hostel"/>
+        /// Этаж <see cref="Entities.Flat"/>
         /// </summary>
-        public virtual Hostel? Hostel { get; set; }
+        public virtual Flat? Flat { get; set; }
     }
 }
