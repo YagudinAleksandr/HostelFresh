@@ -3,9 +3,9 @@
 namespace HostelFresh.Domain.Entities
 {
     /// <summary>
-    /// Общежитие
+    /// Тарифный план
     /// </summary>
-    public class Hostel : IEntity<int>, IOrderedEntity
+    public class Rate : IEntity<int>
     {
         public int Id { get; set; }
 
@@ -15,13 +15,13 @@ namespace HostelFresh.Domain.Entities
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Адрес
+        /// ИД общежития
         /// </summary>
-        public byte[] Address { get; set; } = null!;
+        public int HostelId { get; set; }
 
         /// <summary>
-        /// Номер по порядку
+        /// Общежитие <see cref="Entities.Hostel"/>
         /// </summary>
-        public int? OrderNumber { get; set; }
+        public virtual Hostel? Hostel { get; set; }
     }
 }
