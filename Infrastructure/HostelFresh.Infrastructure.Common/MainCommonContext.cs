@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HostelFresh.Infrastructure.Common.Configurations;
+using Microsoft.EntityFrameworkCore;
 
 namespace HostelFresh.Infrastructure.Common
 {
@@ -11,7 +12,7 @@ namespace HostelFresh.Infrastructure.Common
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(HostelConfiguration).Assembly);
         }
     }
 }
