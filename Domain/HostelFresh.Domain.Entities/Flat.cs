@@ -28,5 +28,10 @@ namespace HostelFresh.Domain.Entities
         /// Подъезд <see cref="Entities.Enterance"/>
         /// </summary>
         public virtual Enterance? Enterance { get; set; }
+
+        /// <summary>
+        /// Комнаты
+        /// </summary>
+        public virtual IReadOnlyCollection<Room> Rooms { get; set; } = new List<Room>();
     }
 }

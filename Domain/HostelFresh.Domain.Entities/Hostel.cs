@@ -17,11 +17,21 @@ namespace HostelFresh.Domain.Entities
         /// <summary>
         /// Адрес
         /// </summary>
-        public byte[] Address { get; set; } = null!;
+        public string Address { get; set; } = null!;
 
         /// <summary>
         /// Номер по порядку
         /// </summary>
         public int? OrderNumber { get; set; }
+
+        /// <summary>
+        /// Подъезды
+        /// </summary>
+        public virtual IReadOnlyCollection<Enterance> Enterances { get; set; } = new List<Enterance>();
+
+        /// <summary>
+        /// Тарифные планы
+        /// </summary>
+        public virtual IReadOnlyCollection<Rate> Rates { get; set; } = new List<Rate>();
     }
 }

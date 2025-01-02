@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.36" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Application\HostelFresh.Application.Abstractions\HostelFresh.Application.Abstractions.csproj" />
     <ProjectReference Include="..\..\Shared\HostelFresh.Shared.Enums\HostelFresh.Shared.Enums.csproj" />
   </ItemGroup>

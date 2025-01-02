@@ -13,7 +13,7 @@ namespace HostelFresh.Domain.Entities
         /// <summary>
         /// ИД пользователя
         /// </summary>
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; set; }
 
         /// <summary>
         /// ИД общежития
@@ -46,9 +46,9 @@ namespace HostelFresh.Domain.Entities
         public bool IsActive { get; set; }
 
         /// <summary>
-        /// Пользователь <see cref="ApplicationUser"/>
+        /// Пользователь <see cref="Entities.User"/>
         /// </summary>
-        public virtual ApplicationUser? User { get; set; }
+        public virtual User? User { get; set; }
 
         /// <summary>
         /// Общежитие <see cref="Entities.Hostel"/>
