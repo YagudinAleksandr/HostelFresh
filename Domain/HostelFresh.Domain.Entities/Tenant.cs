@@ -13,7 +13,7 @@ namespace HostelFresh.Domain.Entities
         /// <summary>
         /// ИД пользователя
         /// </summary>
-        public string UserId { get; set; } = null!;
+        public Guid UserId { get; set; }
 
         /// <summary>
         /// Тип жильца <see cref="TenantTypes"/>
@@ -23,6 +23,16 @@ namespace HostelFresh.Domain.Entities
         /// <summary>
         /// Идентификация
         /// </summary>
-        public byte[] Identification { get; set; } = null!;
+        public string Identification { get; set; } = null!;
+
+        /// <summary>
+        /// Адрес
+        /// </summary>
+        public string Address { get; set; } = null!;
+
+        /// <summary>
+        /// Пользователь <see cref="Entities.User"/>
+        /// </summary>
+        public virtual User? User { get; set; }
     }
 }

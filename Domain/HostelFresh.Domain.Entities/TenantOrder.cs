@@ -7,7 +7,7 @@ namespace HostelFresh.Domain.Entities
     /// </summary>
     public class TenantOrder : IEntity<DateTimeOffset>
     {
-        public DateTimeOffset Id { get; set; }
+        public DateTimeOffset Id { get; set; } = DateTimeOffset.UtcNow;
 
         /// <summary>
         /// ИД жильца

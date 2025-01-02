@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace HostelFresh.Infrastructure.Common.Configurations
 {
     /// <summary>
-    /// Конфигурация подъезда
+    /// Конфигурация подъезда <see cref="Enterance"/>
     /// </summary>
     internal class EnteranceConfiguration : IEntityTypeConfiguration<Enterance>
     {

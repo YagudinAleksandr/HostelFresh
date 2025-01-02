@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace HostelFresh.Infrastructure.Common.Configurations
 {
     /// <summary>
-    /// Конфигурация комнаты
+    /// Конфигурация комнаты <see cref="Room"/>
     /// </summary>
     internal class RoomConfiguration : IEntityTypeConfiguration<Room>
     {
@@ -15,9 +15,8 @@ namespace HostelFresh.Infrastructure.Common.Configurations
             builder.HasKey(x=>x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).HasMaxLength(DatabaseConsts.ShortTextLenght).IsRequired();
-            builder.Property(x => x.Type).HasDefaultValue(1).IsRequired();
-            builder.Property(x => x.MaxTenant).HasDefaultValue(2);
             builder.HasOne(x => x.Flat).WithMany(x => x.Rooms).HasForeignKey(x => x.FlatId);
+            builder.Property(x => x.Type).HasDefaultValue(1);
         }
     }
 }

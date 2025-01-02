@@ -17,7 +17,7 @@ namespace HostelFresh.Domain.Entities
         /// <summary>
         /// Адрес
         /// </summary>
-        public byte[] Address { get; set; } = null!;
+        public string Address { get; set; } = null!;
 
         /// <summary>
         /// Номер по порядку
