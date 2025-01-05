@@ -3,9 +3,12 @@
     /// <summary>
     /// Базовая сущность
     /// </summary>
-    /// <typeparam name="T">Тип ИД</typeparam>
-    public interface IEntity<T>
+    /// <typeparam name="TKey">Тип ключа</typeparam>
+    public interface IEntity<TKey>
     {
-        T Id { get; set; }
+        /// <summary>
+        /// ИД
+        /// </summary>
+        TKey Id { get; set; }
     }
 }

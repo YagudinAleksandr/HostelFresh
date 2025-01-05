@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7.0-alpine
+    container_name: hf_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server
+    expose:
+      - 6379
+
+  postgres:
+    image: postgis/postgis:13-3.3
+    container_name: hf_postgre
+    ports:
+      - 5444:5432
+    env_file:
+      - .env
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  kafka:
+    image: &kafka-image "bitnami/kafka:3.5"
+    container_name: hf_kafka
+    healthcheck:
+      test:
+        ["CMD", "kafka-topics.sh", "--bootstrap-server=kafka:9092", "--list"]
+      start_period: 15s
+      interval: 10s
+    ports:
+      - "9092:9092"
+    env_file:
+      - .env
+  
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "5341:5341"  # Порт для доступа через браузер
+      - "8080:80"    # Порт для HTTP доступа
