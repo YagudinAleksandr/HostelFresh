@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\HostelFresh.Infrastructure.Common\HostelFresh.Infrastructure.Common.csproj" />
   </ItemGroup>
 

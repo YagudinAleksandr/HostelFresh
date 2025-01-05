@@ -8,7 +8,7 @@ namespace HostelFresh.Infrastructure.Common.Configurations
     /// <summary>
     /// Конфигурация комнаты <see cref="Room"/>
     /// </summary>
-    internal class RoomConfiguration : IEntityTypeConfiguration<Room>
+    public class RoomConfiguration : IEntityTypeConfiguration<Room>
     {
         public void Configure(EntityTypeBuilder<Room> builder)
         {
@@ -16,7 +16,7 @@ namespace HostelFresh.Infrastructure.Common.Configurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.Name).HasMaxLength(DatabaseConsts.ShortTextLenght).IsRequired();
             builder.HasOne(x => x.Flat).WithMany(x => x.Rooms).HasForeignKey(x => x.FlatId);
-            builder.Property(x => x.Type).HasDefaultValue(1);
+            builder.Property(x => x.Type).HasConversion<int>().HasDefaultValueSql("1");
         }
     }
 }
