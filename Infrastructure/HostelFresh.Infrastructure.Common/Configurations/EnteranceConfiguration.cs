@@ -8,7 +8,7 @@ namespace HostelFresh.Infrastructure.Common.Configurations
     /// <summary>
     /// Конфигурация подъезда <see cref="Enterance"/>
     /// </summary>
-    internal class EnteranceConfiguration : IEntityTypeConfiguration<Enterance>
+    public class EnteranceConfiguration : IEntityTypeConfiguration<Enterance>
     {
         public void Configure(EntityTypeBuilder<Enterance> builder)
         {

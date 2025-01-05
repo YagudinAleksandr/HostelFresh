@@ -8,7 +8,7 @@ namespace HostelFresh.Infrastructure.Common.Configurations
     /// <summary>
     /// Конфигурация этажа <see cref="Flat"/>
     /// </summary>
-    internal class FlatConfiguration : IEntityTypeConfiguration<Flat>
+    public class FlatConfiguration : IEntityTypeConfiguration<Flat>
     {
         public void Configure(EntityTypeBuilder<Flat> builder)
         {
