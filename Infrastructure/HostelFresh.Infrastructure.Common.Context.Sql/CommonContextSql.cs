@@ -14,6 +14,8 @@ namespace HostelFresh.Infrastructure.Common.Context.Sql
         {
             modelBuilder.Entity<User>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<Tenant>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
