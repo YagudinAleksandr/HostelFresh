@@ -36,3 +36,13 @@ services:
       - "9092:9092"
     env_file:
       - .env
+  
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "5341:5341"  # Порт для доступа через браузер
+      - "8080:80"    # Порт для HTTP доступа
