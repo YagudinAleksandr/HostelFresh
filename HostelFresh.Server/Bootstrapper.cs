@@ -1,7 +1,9 @@
 ﻿using HostelFresh.Application.Abstractions.Factories;
+using HostelFresh.Application.Abstractions.Services;
 using HostelFresh.Application.Database.Services;
 using HostelFresh.Infrastructure.Common.Context.Npg;
 using HostelFresh.Infrastructure.Common.Context.Sql;
+using HostelFresh.Infrastructure.Logging;
 using HostelFresh.Shared.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -36,10 +38,10 @@ namespace HostelFresh.Server
             var connectionSettings = configuration.GetSection("ConnectionSettings").Get<DatabaseContextConfiguration>();
 
             services.AddDbContext<CommonContextSql>(options 
-                => options.UseSqlServer(connectionSettings.MSSQL.ConnectionString));
+                => options.UseSqlServer(connectionSettings!.MSSQL.ConnectionString));
 
             services.AddDbContext<CommonContextNpg>(options
-                => options.UseNpgsql(connectionSettings.PostgreSQL.ConnectionString));
+                => options.UseNpgsql(connectionSettings!.PostgreSQL.ConnectionString));
 
             return services;
         }
@@ -51,6 +53,7 @@ namespace HostelFresh.Server
         /// <returns>Коллекция сервисов</returns>
         public static IServiceCollection GetServices(this IServiceCollection services)
         {
+            services.AddSingleton(typeof(ILoggingService<>), typeof(LoggingService<>));
             services.AddSingleton<IDbFactory, DbFactory>(sp =>
             {
                 var settings = sp.GetRequiredService<IOptions<DatabaseContextConfiguration>>().Value;
