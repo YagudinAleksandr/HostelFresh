@@ -1,10 +1,8 @@
-using HostelFresh.Infrastructure.Logging;
 using HostelFresh.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddCustomLogging(builder.Configuration);
 builder.Services.GetConfigurations(builder.Configuration);
 builder.Services.GetDatabaseContext(builder.Configuration);
 builder.Services.GetServices();
