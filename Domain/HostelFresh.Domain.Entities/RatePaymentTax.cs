@@ -11,6 +11,11 @@ namespace HostelFresh.Domain.Entities
         public int Id { get; set; }
 
         /// <summary>
+        /// ИД тарифа
+        /// </summary>
+        public int RateId { get; set; }
+
+        /// <summary>
         /// Название
         /// </summary>
         public string Name { get; set; } = null!;
@@ -34,5 +39,10 @@ namespace HostelFresh.Domain.Entities
         /// Цена
         /// </summary>
         public double Tax { get; set; }
+
+        /// <summary>
+        /// Тарифный план <see cref="Entities.Rate"/>
+        /// </summary>
+        public virtual Rate? Rate { get; set; }
     }
 }
