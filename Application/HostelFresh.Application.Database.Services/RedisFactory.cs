@@ -24,6 +24,11 @@ namespace HostelFresh.Application.Database.Services
 
         public IConnectionMultiplexer CreateConnection()
         {
+            if (_redisConfiguration.ConnectionString == null)
+            {
+                throw new InvalidOperationException("Not set connection for Redis");
+            }
+
             if (_connection == null || !_connection.IsConnected)
             {
                 _connection = ConnectionMultiplexer.Connect(_redisConfiguration.ConnectionString);
