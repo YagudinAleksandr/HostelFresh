@@ -24,6 +24,8 @@ namespace HostelFresh.Server
         public static IServiceCollection GetConfigurations(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<DatabaseContextConfiguration>(configuration.GetSection("ConnectionSettings"));
+            services.Configure<RedisConfiguration>(configuration.GetSection("Redis"));
+
             return services;
         }
 
@@ -37,12 +39,15 @@ namespace HostelFresh.Server
         {
             var connectionSettings = configuration.GetSection("ConnectionSettings").Get<DatabaseContextConfiguration>();
 
-            services.AddDbContext<CommonContextSql>(options 
-                => options.UseSqlServer(connectionSettings!.MSSQL.ConnectionString));
+            if (connectionSettings != null)
+            {
+                services.AddDbContext<CommonContextSql>(options
+                    => options.UseSqlServer(connectionSettings.MSSQL.ConnectionString));
 
-            services.AddDbContext<CommonContextNpg>(options
-                => options.UseNpgsql(connectionSettings!.PostgreSQL.ConnectionString));
-
+                services.AddDbContext<CommonContextNpg>(options
+                    => options.UseNpgsql(connectionSettings.PostgreSQL.ConnectionString));
+            }
+            
             return services;
         }
 
@@ -59,6 +64,7 @@ namespace HostelFresh.Server
                 var settings = sp.GetRequiredService<IOptions<DatabaseContextConfiguration>>().Value;
                 return new DbFactory(settings, sp);
             });
+            services.AddSingleton<IRedisFactory, RedisFactory>();
 
             return services;
         }
