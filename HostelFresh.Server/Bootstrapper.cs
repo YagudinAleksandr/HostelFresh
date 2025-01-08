@@ -27,6 +27,7 @@ namespace HostelFresh.Server
         {
             services.Configure<DatabaseContextConfiguration>(configuration.GetSection("ConnectionSettings"));
             services.Configure<RedisConfiguration>(configuration.GetSection("Redis"));
+            services.Configure<EventStoreConfiguration>(configuration.GetSection("EventStore"));
 
             return services;
         }
@@ -67,6 +68,7 @@ namespace HostelFresh.Server
                 return new DbFactory(settings, sp);
             });
             services.AddSingleton<IRedisFactory, RedisFactory>();
+            services.AddSingleton<IEventStoreFactory, EventStoreFactory>();
 
             return services;
         }
