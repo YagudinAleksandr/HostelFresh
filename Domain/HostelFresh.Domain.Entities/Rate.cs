@@ -23,5 +23,10 @@ namespace HostelFresh.Domain.Entities
         /// Общежитие <see cref="Entities.Hostel"/>
         /// </summary>
         public virtual Hostel? Hostel { get; set; }
+
+        /// <summary>
+        /// Статьи расхода <see cref="RatePaymentTax"/>
+        /// </summary>
+        public IReadOnlyCollection<RatePaymentTax>? RatePaymentTaxes { get; set; }
     }
 }

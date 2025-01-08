@@ -54,5 +54,10 @@ namespace HostelFresh.Domain.Entities
         /// Жилец <see cref="Entities.Tenant"/>
         /// </summary>
         public virtual Tenant? Tenant { get; set; }
+
+        /// <summary>
+        /// Лицензии <see cref="License"/>
+        /// </summary>
+        public virtual IReadOnlyCollection<License>? Licenses { get; set; }
     }
 }
