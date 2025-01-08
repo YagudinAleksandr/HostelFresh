@@ -10,6 +10,13 @@ namespace HostelFresh.Infrastructure.Common.Context.Sql
         {
         }
 
+        public new DbSet<TEntity> Set<TEntity>() where TEntity : class => base.Set<TEntity>();
+
+        public new async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
