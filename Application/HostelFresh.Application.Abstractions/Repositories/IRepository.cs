@@ -41,6 +41,6 @@ namespace HostelFresh.Application.Abstractions.Repositories
         /// </summary>
         /// <param name="filter">Фильтр</param>
         /// <returns>Список сущностей</returns>
-        IReadOnlyCollection<TEntity> GetAll(Func<TEntity, bool>? filter = null);
+        Task<IReadOnlyCollection<TEntity>> GetAll(Func<TEntity, bool>? filter = null);
     }
 }

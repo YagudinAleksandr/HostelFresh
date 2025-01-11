@@ -41,9 +41,18 @@ namespace HostelFresh.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public IReadOnlyCollection<TEntity> GetAll(Func<TEntity, bool>? filter = null)
+        public async Task<IReadOnlyCollection<TEntity>> GetAll(Func<TEntity, bool>? filter = null)
         {
-            return filter == null ? _dbSet.ToList() : _dbSet.Where(filter).ToList();
+            var query = _dbSet.AsQueryable();
+
+            if (filter != null)
+            {
+                query = query.Where(filter).AsQueryable();
+            }
+
+            var result = await query.ToListAsync();
+
+            return result.AsReadOnly();
         }
 
         public async Task<TEntity?> GetById(TKey key)
