@@ -81,6 +81,7 @@ namespace HostelFresh.Server
         public static IServiceCollection GetRepositories(this IServiceCollection services)
         {
             services.AddSingleton(typeof(IRepository<,>), typeof(Repository<,>));
+            services.AddSingleton(typeof(ICacheRepository<,>), typeof(CacheRepository<,>));
 
             return services;
         }

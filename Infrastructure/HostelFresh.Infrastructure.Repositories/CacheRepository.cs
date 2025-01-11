@@ -1,14 +1,13 @@
 ﻿using HostelFresh.Application.Abstractions.Entities;
 using HostelFresh.Application.Abstractions.Factories;
 using HostelFresh.Application.Abstractions.Repositories;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using StackExchange.Redis;
 using System.Text.Json;
 
 namespace HostelFresh.Infrastructure.Repositories
 {
-    public class CacheRepository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class, IEntity<TKey>
+    /// <inheritdoc cref="ICacheRepository{TEntity, TKey}"/>
+    public class CacheRepository<TEntity, TKey> : ICacheRepository<TEntity, TKey> where TEntity : class, IEntity<TKey>
     {
         #region CTOR
         /// <inheritdoc cref="IRedisFactory"/>
