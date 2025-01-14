@@ -20,11 +20,16 @@ namespace HostelFresh.Infrastructure.Repositories
         /// <inheritdoc cref="IDbContext"/>
         private readonly IDbContext _context;
 
-        public Repository(IDbFactory dbFactory)
+        /// <inheritdoc cref="ICacheRepository{TEntity, TKey}"/>
+        private readonly ICacheRepository<TEntity, TKey> _cacheRepository;
+
+
+        public Repository(IDbFactory dbFactory, ICacheRepository<TEntity, TKey> cacheRepository)
         {
             _dbFactory = dbFactory;
             _context = _dbFactory.CreateDbScontext();
             _dbSet = _context.Set<TEntity>();
+            _cacheRepository = cacheRepository;
         }
         #endregion
 
@@ -32,17 +37,34 @@ namespace HostelFresh.Infrastructure.Repositories
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
+
+            if(entity is ICacheEntity)
+            {
+                await _cacheRepository.CreateEntity(entity);
+            }
+
             return entity.Id;
         }
 
         public async Task DeleteEntity(TEntity entity)
         {
             _dbSet.Remove(entity);
+
+            if(entity is ICacheEntity)
+            {
+                await _cacheRepository.DeleteEntity(entity);
+            }
+
             await _context.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyCollection<TEntity>> GetAll(Func<TEntity, bool>? filter = null)
         {
+            if(typeof(TEntity) is ICacheEntity)
+            {
+                return await _cacheRepository.GetAll(filter);
+            }
+
             var query = _dbSet.AsQueryable();
 
             if (filter != null)
@@ -57,11 +79,30 @@ namespace HostelFresh.Infrastructure.Repositories
 
         public async Task<TEntity?> GetById(TKey key)
         {
-            return await _dbSet.FindAsync(key);
+            TEntity? entity = null;
+
+            if(typeof(TEntity) is ICacheEntity)
+            {
+                entity = await _cacheRepository.GetById(key);
+            }
+
+            if(entity == null)
+            {
+                return await _dbSet.FindAsync(key);
+            }
+            else
+            {
+                return entity;
+            }
         }
 
         public async Task<TKey> UpdatedEntity(TEntity entity)
         {
+            if(entity is ICacheEntity)
+            {
+                await _cacheRepository.UpdatedEntity(entity);
+            }
+
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
             return entity.Id;
