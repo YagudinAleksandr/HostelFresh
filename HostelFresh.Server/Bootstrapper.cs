@@ -82,6 +82,7 @@ namespace HostelFresh.Server
         {
             services.AddSingleton(typeof(IRepository<,>), typeof(Repository<,>));
             services.AddSingleton(typeof(ICacheRepository<,>), typeof(CacheRepository<,>));
+            services.AddSingleton(typeof(IEventRepository<>), typeof(EventRepository<>));
 
             return services;
         }

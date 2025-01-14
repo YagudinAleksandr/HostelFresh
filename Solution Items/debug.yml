@@ -39,10 +39,19 @@ services:
   
   seq:
     image: datalust/seq:latest
-    container_name: seq
+    container_name: hf_seq
     restart: unless-stopped
     env_file:
       - .env
     ports:
       - "5341:5341"
       - "8080:80"
+  
+  eventstore:
+    image: eventstore/eventstore:21.10.3-bionic
+    container_name: hf_eventstore
+    env_file:
+      - .env
+    ports:
+      - "1113:1113"
+      - "2113:2113"
