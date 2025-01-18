@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Infrastructure\HostelFresh.Infrastructure.Common.Context.Sql\HostelFresh.Infrastructure.Common.Context.Sql.csproj" />
     <ProjectReference Include="..\Infrastructure\HostelFresh.Infrastructure.Logging\HostelFresh.Infrastructure.Logging.csproj" />
     <ProjectReference Include="..\Infrastructure\HostelFresh.Infrastructure.Repositories\HostelFresh.Infrastructure.Repositories.csproj" />
+    <ProjectReference Include="..\Shared\HostelFresh.Shared.Common.Dtos\HostelFresh.Shared.Common.Dtos.csproj" />
   </ItemGroup>
 
 </Project>
