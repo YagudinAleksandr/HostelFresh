@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostelFresh.Infrastructure.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.Infrastructure.Repositories", "Infrastructure\HostelFresh.Infrastructure.Repositories\HostelFresh.Infrastructure.Repositories.csproj", "{6EE58FEE-3067-4CFC-8547-2DD31DBAC926}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelFresh.Shared.Common.Dtos", "Shared\HostelFresh.Shared.Common.Dtos\HostelFresh.Shared.Common.Dtos.csproj", "{0A3D3B3F-508E-4280-A7D0-16F469B99010}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{6EE58FEE-3067-4CFC-8547-2DD31DBAC926}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EE58FEE-3067-4CFC-8547-2DD31DBAC926}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EE58FEE-3067-4CFC-8547-2DD31DBAC926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3D3B3F-508E-4280-A7D0-16F469B99010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3D3B3F-508E-4280-A7D0-16F469B99010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3D3B3F-508E-4280-A7D0-16F469B99010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3D3B3F-508E-4280-A7D0-16F469B99010}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{34875D30-96F3-408C-BF36-86ACDD0D8FF6} = {9B6F20BE-25EB-4431-9E05-F529B29FDDAC}
 		{DE2A638F-0BBD-4A57-8F4D-CE67E257B6BF} = {B37C4C43-FB56-40DC-ACC4-050257F49C1A}
 		{6EE58FEE-3067-4CFC-8547-2DD31DBAC926} = {B37C4C43-FB56-40DC-ACC4-050257F49C1A}
+		{0A3D3B3F-508E-4280-A7D0-16F469B99010} = {9B6F20BE-25EB-4431-9E05-F529B29FDDAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFB1DFC9-8CA8-4740-80D5-ED718A7600D7}
